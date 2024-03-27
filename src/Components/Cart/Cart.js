@@ -6,12 +6,17 @@ import { CartContext } from '../Store/Cart-context';
 const Cart = (props) => {
   
   const {removeCartItem,cartItem} = useContext(CartContext)
-  console.log(removeCartItem,cartItem)
+  // console.log(removeCartItem,cartItem)
 
   const onRemoveHandler = (itemid) => { 
-      console.log(itemid)
+      // console.log(itemid)
       removeCartItem(itemid)
   }
+
+  const updateQuantity =(event)=>{
+    console.log(event.target.value)
+  }
+
 
   const hardcodedList = cartItem.map((item, index) => (
     <tr key={index}>
@@ -21,8 +26,8 @@ const Cart = (props) => {
       </td>
       <td>{item.price}</td>
       <td>
-        <span>{item.quantity}</span>
-        <Button onClick={() => onRemoveHandler(index)}>Remove</Button>
+          <input type='number' defaultValue={item.quantity} onChange={updateQuantity} className={classes.input}/>
+          <Button onClick={() => onRemoveHandler(index)}>Remove</Button>
       </td>
     </tr>
   ));

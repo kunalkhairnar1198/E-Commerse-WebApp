@@ -18,8 +18,8 @@ function App() {
 
   return (
     <CartProvider>
-      <Navbarheader onOpenCart={openCartHandler}/>
       {openCart && <Cart onCloseHandler={closeCartHandler}/>}
+      <Navbarheader onOpenCart={openCartHandler}/>
       <Availableproducts  onOpenCarthandle={openCartHandler}/>
       <Footer/>
     </CartProvider>

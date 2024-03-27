@@ -4,7 +4,7 @@ import NavButton from './NavButton'
 import classes from './Navbarheader.module.css'
 
 const Navbarheader = (props) => {
-  console.log(props)
+  // console.log(props)
   return (
     <>
         <Navbar bg='dark' expand='sm' variant='dark' sticky="top" className={classes.height}>
