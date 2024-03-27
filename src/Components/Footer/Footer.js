@@ -11,13 +11,13 @@ const Footer = () => {
 
             <Nav className="gap-5 justify-content-end" color='red'>
             <Nav.Item>
-              <Nav.Link href="/">Active</Nav.Link>
+              <Nav.Link href="/">Youtube</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href='/'>Link</Nav.Link>
+              <Nav.Link href='/'>Instagram</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link href='/'>Link</Nav.Link>
+              <Nav.Link href='/'>Facebook</Nav.Link>
             </Nav.Item>
           </Nav>
       </Container>

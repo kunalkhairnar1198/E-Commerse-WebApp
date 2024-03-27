@@ -3,7 +3,8 @@ import { Container, Nav,  Navbar } from 'react-bootstrap'
 import NavButton from './NavButton'
 import classes from './Navbarheader.module.css'
 
-const Navbarheader = () => {
+const Navbarheader = (props) => {
+  console.log(props)
   return (
     <>
         <Navbar bg='dark' expand='sm' variant='dark' sticky="top" className={classes.height}>
@@ -17,7 +18,7 @@ const Navbarheader = () => {
                   <Nav.Link className='mx-5'>ABOUTUS</Nav.Link>
                 </Nav>
             </Container>
-          <NavButton/>
+          <NavButton onOpenHandle={props.onOpenCart}/>
         </Navbar>
         <div className='bg-info-subtle p-5'>
           <Container className='text-center pb-5' >

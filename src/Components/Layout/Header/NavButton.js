@@ -1,9 +1,9 @@
-import React from 'react'
 import { Button } from 'react-bootstrap'
 
-const NavButton = () => {
+const NavButton = (props) => {
+
   return (
-    <Button variant='light' className='mx-auto'>
+    <Button variant='light' className='mx-auto' onClick={props.onOpenHandle}>
       Your Cart{0}
     </Button>
   )

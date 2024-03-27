@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 
-const Availableproducts = () => {
+const Availableproducts = (props) => {
   const dummyProducts = [
     {
       title: 'Colors',
@@ -32,12 +32,12 @@ const Availableproducts = () => {
 
   const listOfProducts = dummyProducts.map((item, index) => (
     <Col key={index} >
-      <Card style={{width:'18rem'}} className='mx-5'>
+      <Card style={{width:'18rem'}} className='justify-content-flex'>
         <Card.Img variant='top' src={item.imageUrl} />
-        <Card.Body className='text-center'>
-          <Card.Title>{item.title}</Card.Title>
-          <Card.Text>Price: {item.price}</Card.Text>
-        </Card.Body>
+          <Card.Body className='text-center'>
+            <Card.Title>{item.title}</Card.Title>
+            <Card.Text>Price: {item.price}</Card.Text>
+          </Card.Body>
         <Button>AddToCart</Button>
       </Card>
     </Col>
@@ -45,14 +45,14 @@ const Availableproducts = () => {
 
   return (
     <Fragment>
-        <Container>
+        <Container className='mt-3'>
     
           <h1>Music</h1>
 
             <Row xs={1} md={2} className='g-4 justify-content-center'>
                 {listOfProducts}
             </Row>
-            <Button>SeeTheCart</Button>
+            <Button onClick={props.onOpenCarthandle}>SeeTheCart</Button>
         </Container>
       
     </Fragment>
