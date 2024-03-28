@@ -2,6 +2,8 @@ import React from 'react'
 import { Container, Nav,  Navbar } from 'react-bootstrap'
 import NavButton from './NavButton'
 import classes from './Navbarheader.module.css'
+import  {NavLink}  from 'react-router-dom'
+
 
 const Navbarheader = (props) => {
   // console.log(props)
@@ -12,11 +14,17 @@ const Navbarheader = (props) => {
                 <Navbar.Brand href='/' className='justify-content-left'>
                     React-Ecomerse
                 </Navbar.Brand>
-                <Nav className='mx-auto '>
-                  <Nav.Link className='mx-5'>HOME</Nav.Link>
-                  <Nav.Link className='mx-5'>STORE</Nav.Link>
-                  <Nav.Link className='mx-5'>ABOUTUS</Nav.Link>
-                </Nav>
+                  <Nav className='mx-auto '>
+                    <Nav.Item>
+                      <NavLink to='home' className='nav-link mx-5'>HOME</NavLink>
+                    </Nav.Item> 
+                    <Nav.Item>
+                      <NavLink to='store' className='nav-link mx-5'>STORE</NavLink>
+                      </Nav.Item>
+                    <Nav.Item>
+                      <NavLink to='about' className='nav-link mx-5'>ABOUTUS</NavLink>
+                    </Nav.Item>
+                  </Nav>
             </Container>
           <NavButton onOpenHandle={props.onOpenCart}/>
         </Navbar>

@@ -33,13 +33,13 @@ const Cart = (props) => {
   ));
 
   return (
-    <Container className='position-fixed' style={{ right: '-24%', top: '4rem', height: '100rem', overflow: 'auto' }}>
-      <div className="modal show" style={{ display: 'block', position: 'relative' }}>
+    <Container className='z-1 position-fixed' style={{ right: '-24%', top: '4rem', height: '100rem' }}>
+      <div className=" modal show" style={{ display: 'block', position: 'relative' }}>
         <Modal.Dialog>
           <Modal.Header closeButton onClick={props.onCloseHandler}>
             <Modal.Title>Cart List</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body style={{ maxHeight: 'calc(95vh - 300px)', overflowY: 'auto' }}>
             <Table responsive='md' className='table'>
               <thead>
                 <tr>

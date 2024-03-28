@@ -6,7 +6,7 @@ const NavButton = (props) => {
   const {cartItem} = useContext(CartContext)
 
   return (
-    <Button variant='light' className='mx-auto' onClick={props.onOpenHandle}>
+    <Button variant='light' className='mx-auto' data-toggle="modal" onClick={props.onOpenHandle}>
       <span className='text-bold'>Your Cart{cartItem.length}</span>
     </Button>
   )

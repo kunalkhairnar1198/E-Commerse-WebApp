@@ -1,11 +1,11 @@
 import React from 'react'
 import Availableproducts from '../../Products/Availableproducts'
 
-const Store = () => {
+const Store = (props) => {
   console.log('hello world')
   return (
     <div>
-      <Availableproducts/>
+      <Availableproducts onOpenCarthandler={props.onOpenCarthandle}/>
     </div>
   )
 }

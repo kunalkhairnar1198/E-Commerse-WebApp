@@ -1,9 +1,13 @@
 import {  useState } from 'react';
 import Navbarheader from './Components/Layout/Header/Navbarheader';
 import Footer from './Components/Footer/Footer';
-import Availableproducts from './Components/Products/Availableproducts';
 import Cart from './Components/Cart/Cart';
 import CartProvider from './Components/Store/CartProvider';
+import { BrowserRouter, Route,  Routes  } from 'react-router-dom';
+import Store from './Components/Layout/Pages/Store';
+import Home from './Components/Layout/Pages/Home';
+import Aboutus from './Components/Layout/Pages/Aboutus';
+
 
 function App() {
   const [openCart, setOpenCart]=useState(false)
@@ -17,12 +21,20 @@ function App() {
 
 
   return (
-    <CartProvider>
-      {openCart && <Cart onCloseHandler={closeCartHandler}/>}
-      <Navbarheader onOpenCart={openCartHandler}/>
-      <Availableproducts  onOpenCarthandle={openCartHandler}/>
-      <Footer/>
-    </CartProvider>
+    <BrowserRouter>
+        <CartProvider>
+          {openCart && <Cart onCloseHandler={closeCartHandler}/>}
+          <Navbarheader onOpenCart={openCartHandler}/>
+        <main>
+            <Routes>
+              <Route path='home' element={<Home/>}/>
+              <Route path='store' element={<Store onOpenCarthandle={openCartHandler}/>}/>
+              <Route path='about' element={<Aboutus/>}/>
+            </Routes>
+          <Footer/>
+        </main>
+        </CartProvider>
+      </BrowserRouter>
   );
 }
 
