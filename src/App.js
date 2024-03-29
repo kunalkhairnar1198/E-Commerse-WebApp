@@ -5,8 +5,8 @@ import Cart from './Components/Cart/Cart';
 import CartProvider from './Components/Store/CartProvider';
 import { BrowserRouter, Route,  Routes  } from 'react-router-dom';
 import Store from './Components/Layout/Pages/Store';
-import Home from './Components/Layout/Pages/Home';
 import Aboutus from './Components/Layout/Pages/Aboutus';
+import Home from './Components/Layout/Pages/Home';
 
 
 function App() {
@@ -27,7 +27,7 @@ function App() {
           <Navbarheader onOpenCart={openCartHandler}/>
         <main>
             <Routes>
-              <Route path='home' element={<Home/>}/>
+              <Route path='/' element={<Home/>}/>
               <Route path='store' element={<Store onOpenCarthandle={openCartHandler}/>}/>
               <Route path='about' element={<Aboutus/>}/>
             </Routes>

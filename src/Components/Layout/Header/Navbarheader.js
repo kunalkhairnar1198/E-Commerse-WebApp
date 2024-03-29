@@ -1,18 +1,26 @@
-import React, {useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Container, Nav,  Navbar } from 'react-bootstrap'
 import NavButton from './NavButton'
 import classes from './Navbarheader.module.css'
 import  {NavLink}  from 'react-router-dom'
-import Summary from './Summary'
+import Home from '../Pages/Home'
 
 
 const Navbarheader = (props) => {
-  const [navState, setNavState] = useState(true)
+  const [navState, setNavState] = useState(false)
+
+  useEffect(() => {
+    setNavState(false);
+  }, []);
 
   const NavigateSummary =()=>{
     setNavState(false)
-    console.log('rener state')
   }
+
+  const isNavigate=()=>{
+    setNavState(true)
+  }
+
 
   // console.log(props)
   return (
@@ -24,13 +32,13 @@ const Navbarheader = (props) => {
                 </Navbar.Brand>
                   <Nav className='mx-auto '>
                     <Nav.Item>
-                      <NavLink to='home' className='nav-link mx-5' onClick={NavigateSummary}>HOME</NavLink>
+                      <NavLink to='/' className='nav-link mx-5' onClick={NavigateSummary}>HOME</NavLink>
                     </Nav.Item> 
                     <Nav.Item>
-                      <NavLink to='store' className='nav-link mx-5'>STORE</NavLink>
+                      <NavLink to='store' className='nav-link mx-5' onClick={isNavigate}>STORE</NavLink>
                       </Nav.Item>
                     <Nav.Item>
-                      <NavLink to='about' className='nav-link mx-5'>ABOUTUS</NavLink>
+                      <NavLink to='about' className='nav-link mx-5'  onClick={isNavigate}>ABOUTUS</NavLink>
                     </Nav.Item>
                   </Nav>
             </Container>
@@ -38,7 +46,7 @@ const Navbarheader = (props) => {
         </Navbar>
      
         <div>
-           <Summary onNavstate={navState}/>
+         {navState &&  <Home onNavstate={navState}/>}
         </div>
     </>
   )
