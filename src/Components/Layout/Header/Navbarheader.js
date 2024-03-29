@@ -1,11 +1,19 @@
-import React from 'react'
+import React, {useState } from 'react'
 import { Container, Nav,  Navbar } from 'react-bootstrap'
 import NavButton from './NavButton'
 import classes from './Navbarheader.module.css'
 import  {NavLink}  from 'react-router-dom'
+import Summary from './Summary'
 
 
 const Navbarheader = (props) => {
+  const [navState, setNavState] = useState(true)
+
+  const NavigateSummary =()=>{
+    setNavState(false)
+    console.log('rener state')
+  }
+
   // console.log(props)
   return (
     <>
@@ -16,7 +24,7 @@ const Navbarheader = (props) => {
                 </Navbar.Brand>
                   <Nav className='mx-auto '>
                     <Nav.Item>
-                      <NavLink to='home' className='nav-link mx-5'>HOME</NavLink>
+                      <NavLink to='home' className='nav-link mx-5' onClick={NavigateSummary}>HOME</NavLink>
                     </Nav.Item> 
                     <Nav.Item>
                       <NavLink to='store' className='nav-link mx-5'>STORE</NavLink>
@@ -28,10 +36,9 @@ const Navbarheader = (props) => {
             </Container>
           <NavButton onOpenHandle={props.onOpenCart}/>
         </Navbar>
-        <div className='bg-info-subtle p-5'>
-          <Container className='text-center pb-5' >
-            <h1 className={classes.bodyheader}>The Generics</h1>
-          </Container>
+     
+        <div>
+           <Summary onNavstate={navState}/>
         </div>
     </>
   )
