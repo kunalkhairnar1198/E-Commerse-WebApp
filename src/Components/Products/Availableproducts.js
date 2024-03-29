@@ -2,6 +2,7 @@ import React, { Fragment,  useContext } from 'react';
 import { Button, Card, Col, Container, Row } from 'react-bootstrap';
 import { CartContext } from '../Store/Cart-context';
 import Title from '../UI/Title';
+import classes from './Availableproducts.module.css'
 
 const Availableproducts = (props) => {
   const dummyProducts = [
@@ -80,7 +81,7 @@ const Availableproducts = (props) => {
   const listOfProducts = dummyProducts.map((item) => (
     <Col  className='p-4 col-md-3' key={item.id} >
       <Card className='d-flex flex-column shadow'>
-        <Card.Img variant='top' src={item.imageUrl} />
+        <Card.Img variant='top' className={classes.img} src={item.imageUrl} />
           <Card.Body className='flex-grow-2'>
             <Card.Title>
                <span>{item.title}</span> 
