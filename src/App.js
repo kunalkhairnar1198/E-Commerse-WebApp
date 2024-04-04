@@ -7,6 +7,7 @@ import {Route} from 'react-router-dom';
 import Store from './Components/Layout/Pages/Store';
 import Aboutus from './Components/Layout/Pages/Aboutus';
 import Home from './Components/Layout/Pages/Home';
+import Contactus from './Components/Layout/Pages/Contactus';
 
 
 function App() {
@@ -33,6 +34,9 @@ function App() {
                 </Route>
                 <Route path='/about'>
                   <Aboutus/>
+                </Route>
+                <Route path='/contactus'>
+                  <Contactus/>
                 </Route>
           <Footer/>
         </main>
