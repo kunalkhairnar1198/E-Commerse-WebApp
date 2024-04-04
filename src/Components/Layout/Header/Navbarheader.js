@@ -32,13 +32,13 @@ const Navbarheader = (props) => {
                 </Navbar.Brand>
                   <Nav className='mx-auto '>
                     <Nav.Item>
-                      <NavLink to='/' className='nav-link mx-5' onClick={NavigateSummary}>HOME</NavLink>
+                      <NavLink to='/home' className='nav-link mx-5' onClick={NavigateSummary}>HOME</NavLink>
                     </Nav.Item> 
                     <Nav.Item>
-                      <NavLink to='store' className='nav-link mx-5' onClick={isNavigate}>STORE</NavLink>
+                      <NavLink to='/store' className='nav-link mx-5' onClick={isNavigate}>STORE</NavLink>
                       </Nav.Item>
                     <Nav.Item>
-                      <NavLink to='about' className='nav-link mx-5'  onClick={isNavigate}>ABOUTUS</NavLink>
+                      <NavLink to='/about' className='nav-link mx-5'   onClick={isNavigate}>ABOUTUS</NavLink>
                     </Nav.Item>
                   </Nav>
             </Container>

@@ -4,6 +4,7 @@ import Title from '../../UI/Title'
 import image from '../../../../src/assets/aboutus.png'
 import classes from './Aboutus.module.css'
 const Aboutus = () => {
+  console.log('ABOUT US ')
   return (
     <>
       <Container className={classes.container}>
