@@ -5,15 +5,8 @@ import Title from '../../UI/Title'
 import Albumlist from './Album/Albumlist'
 
 const Home = (props) => {
+    console.log('HOME COMPONENT')
   return (
-     props.onNavstate  ? 
-        (<>
-            <div className='bg-info-subtle p-5'>
-              <Container className='text-center pb-5' >
-                 <h1 className={classes.bodyheader}>The Generics</h1>
-              </Container>
-          </div>
-        </>) : (
         <>
            <div className='bg-info-subtle p-5'>
             <Container className='text-center pb-5' >
@@ -43,7 +36,7 @@ const Home = (props) => {
         </>
         )
     
-  )
+//   )
 }
 
 export default Home

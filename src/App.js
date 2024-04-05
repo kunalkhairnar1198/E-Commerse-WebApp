@@ -8,6 +8,8 @@ import Store from './Components/Layout/Pages/Store';
 import Aboutus from './Components/Layout/Pages/Aboutus';
 import Home from './Components/Layout/Pages/Home';
 import Contactus from './Components/Layout/Pages/Contactus';
+import { Switch } from 'react-router-dom';
+import ProductDetail from './Components/Products/ProductDetail';
 
 
 function App() {
@@ -26,18 +28,23 @@ function App() {
           {openCart && <Cart onCloseHandler={closeCartHandler}/>}
           <Navbarheader onOpenCart={openCartHandler}/>
           <main>
-                <Route path='/home'>
+              <Switch>
+                <Route exact path='/'>
                     <Home/>
                 </Route>
-                <Route path='/store'>
+                <Route path='/store' exact>
                     <Store onOpenCarthandle={openCartHandler}/>
                 </Route>
-                <Route path='/about'>
+                <Route path='/store/:productId' exact>
+                    <ProductDetail/>
+                </Route>
+                <Route path='/about' exact>
                   <Aboutus/>
                 </Route>
-                <Route path='/contactus'>
+                <Route path='/contactus' exact>
                   <Contactus/>
                 </Route>
+                </Switch>
           <Footer/>
         </main>
         </CartProvider>
