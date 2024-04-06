@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link, Route, useHistory, useParams, useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min'
 import { CartContext } from '../Store/Cart-context'
 import Title from '../UI/Title'
 import {Row, Col ,Button, Card,  Container} from 'react-bootstrap';
@@ -10,9 +10,11 @@ const ProductDetail = (props) => {
     //use params hook is return object of the current url
     const params = useParams()
     const cartCtx = useContext(CartContext)
-
     // this history hook is used to replace url to current url and rdirect to another page
     const history = useHistory()
+    const match = useRouteMatch()
+
+    console.log(match)
     console.log(cartCtx)
     console.log('params', params.productId)
 
@@ -30,7 +32,7 @@ const ProductDetail = (props) => {
     <>
       <Container fluid>
       <Title>Product Details</Title>
-       <Card className='mb-3 ' style={{width:'80rem'}}>
+       <Card className='md-4'  style={{width:'75rem', marginLeft:'5rem', marginRight:'50rem', maxHeight:'50rem'}}>
         <Row>
           <Col xs={6} sm={5}>
             <img src={ProductDetail.imageUrl} className={classes.img} alt="Product" />
