@@ -32,7 +32,7 @@ function App() {
                 <Route exact path='/'>
                     <Home/>
                 </Route>
-                <Route path='/store' exact>
+                <Route path='/store'exact>
                     <Store onOpenCarthandle={openCartHandler}/>
                 </Route>
                 <Route path='/store/:productId' exact>

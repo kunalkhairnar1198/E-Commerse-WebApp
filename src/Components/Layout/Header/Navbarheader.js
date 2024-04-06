@@ -1,4 +1,4 @@
-import React, { useCallback,  useState } from 'react'
+import React, { useState } from 'react'
 import { Container, Nav,  Navbar } from 'react-bootstrap'
 import NavButton from './NavButton'
 import classes from './Navbarheader.module.css'
@@ -32,13 +32,13 @@ const Navbarheader = (props) => {
                       <NavLink to='/' exact className='nav-link mx-5' onClick={()=>NavigateSummary('/')}>HOME</NavLink>
                     </Nav.Item> 
                     <Nav.Item>
-                      <NavLink to='store' className='nav-link mx-5' onClick={()=>NavigateSummary('store')}>STORE</NavLink>
+                      <NavLink to='/store'  className='nav-link mx-5' onClick={()=>NavigateSummary('store')}>STORE</NavLink>
                       </Nav.Item>
                     <Nav.Item>
-                      <NavLink to='about' className='nav-link mx-5'  onClick={isNavigate}>ABOUTUS</NavLink>
+                      <NavLink to='/about' className='nav-link mx-5'  onClick={isNavigate}>ABOUTUS</NavLink>
                     </Nav.Item>
                     <Nav.Item>
-                      <NavLink to='contactus' className='nav-link mx-5'  onClick={isNavigate}>CONTACTUS</NavLink>
+                      <NavLink to='/contactus' className='nav-link mx-5'  onClick={isNavigate}>CONTACTUS</NavLink>
                     </Nav.Item>
                   </Nav>
             </Container>
