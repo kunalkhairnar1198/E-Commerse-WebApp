@@ -24,7 +24,7 @@ const Navbarheader = (props) => {
     <>
         <Navbar bg='dark' expand='sm' variant='dark' sticky="top" className={classes.height}>
             <Container>
-                <Navbar.Brand href='/' className='justify-content-left'>
+                <Navbar.Brand href='/login' className='justify-content-left'>
                     React-Ecomerse
                 </Navbar.Brand>
                   <Nav className='mx-auto '>
@@ -39,6 +39,9 @@ const Navbarheader = (props) => {
                     </Nav.Item>
                     <Nav.Item>
                       <NavLink to='/contactus' className='nav-link mx-5'  onClick={isNavigate}>CONTACTUS</NavLink>
+                    </Nav.Item>
+                    <Nav.Item>
+                      <NavLink to='/login' className='nav-link mx-5'>LogIn</NavLink>
                     </Nav.Item>
                   </Nav>
             </Container>
