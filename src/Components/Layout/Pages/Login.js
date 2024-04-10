@@ -1,12 +1,14 @@
-import React, { Fragment, useRef } from 'react'
+import React, { Fragment, useRef , useContext} from 'react'
 import { Button, Card, CardBody, Form } from 'react-bootstrap'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import { AuthContext } from '../../Store/AuthContext/auth-context'
 
 const Login = () => {
 
     const emailRef = useRef()
     const passwordRef = useRef()
     const navigate = useHistory()
+    const authCtx= useContext(AuthContext)
 
     const onSubmitHanlder =(event)=>{
         event.preventDefault()
@@ -44,7 +46,8 @@ const Login = () => {
           })
          .then((data)=>{
                 console.log('Login SUCCESFULL',data.idToken)
-                alert('login Succesfull')
+                // alert('login Succesfull')
+                authCtx.LogIn(data.idToken)
                 navigate.replace('/store')
                 })
                 .catch((error)=>{
