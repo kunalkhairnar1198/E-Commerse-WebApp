@@ -17,6 +17,10 @@ const Cart = (props) => {
     console.log(event.target.value)
   }
 
+  const TotalAmount = cartItem.reduce((total, currvalue )=>{
+    return total + currvalue.price * currvalue.quantity
+  },0)
+  console.log(TotalAmount)
 
   const hardcodedList = cartItem.map((item, index) => (
     <tr key={index}>
@@ -54,7 +58,7 @@ const Cart = (props) => {
                   <td className='text-end' colSpan={2}>
                     <h5>TotalAmount</h5>
                   </td>
-                  <td>$15.25</td>
+                  <td>${TotalAmount}</td>
                 </tr>
               </tbody>
             </Table>

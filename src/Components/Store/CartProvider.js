@@ -90,15 +90,48 @@ const [cartItems, setCartItems]= useState([
 // const [removeCartItem, setRemoveItem]=useState('')
  
 const addToCartItemshandler=(item)=>{
-  const updatedItem = {
-    ...item,
-    id: Math.random().toString(),
-  };
+ 
   setCartItems((prevCartItems) => {
-    const updatedCartItems = [...prevCartItems, updatedItem];
+    const updatedCartItems = [...prevCartItems, item];
     return updatedCartItems;
   });
   // console.log(item)
+  let email = localStorage.getItem('email')
+  email = email.replace(/[@.]/g, "")
+  // console.log(email)
+
+  fetch(`https://crudcrud.com/api/ce58c65129874fed8767b68032c78a55/cart${email}`, 
+    {
+       method:'POST',
+       headers:{
+        'Content-Type': 'application/json; charset=utf-8',
+        'access-control-allow-origin':'*'
+       },
+       mode:'no-cors',
+       body:JSON.stringify({
+        title: item.title,
+        price: item.price,
+        imageUrl: item.imageUrl,
+        quantity: item.quantity,
+       }),
+      
+    })
+    .then((res)=>{
+        if(res.ok){
+            return res.json()
+            //if successfull request render
+        }else{
+            throw new Error('Post Request Failed.')
+        }
+      })
+     .then((data)=>{
+            console.log('fetch SUCCESFULL',data)
+            // alert('login Succesfull')
+            })
+            .catch((error)=>{
+                // alert(error.message)
+                console.log(error)
+            })
 }
 
 const removeCartHandler=(itemid)=>{
