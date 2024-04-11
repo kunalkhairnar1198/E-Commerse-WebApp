@@ -19,6 +19,7 @@ const Login = () => {
             Email:Email,
             Password:Password,
         }
+        localStorage.setItem('email', JSON.stringify(Email))
         console.log('EXECUTE',enteredCredential)
         FirebaseFetchLoginData(enteredCredential)
     }

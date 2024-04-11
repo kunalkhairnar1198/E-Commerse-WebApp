@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { CartContext } from './Cart-context'
+import axios from 'axios';
 
 const CartProvider = (props) => {
 
@@ -66,39 +67,43 @@ const [dummyData, setDummyData] = useState([
 
   },
 ])
-const [cartItems, setCartItems]= useState([ 
-// {
-//   title: "Colors",
-//   price: 100,
-//   imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-//   quantity: 2,
-// },
-// {
-//   title: "Black and white Colors",
-//   price: 50,
-//   imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-//   quantity: 3,
-// },
-// {
-//   title: "Yellow and Black Colors",
-//   price: 70,
-//   imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-//   quantity: 1,
-// },
-])
+const [cartItems, setCartItems]= useState([])
+let email = localStorage.getItem('email')
+email = email.replace(/[@.""]/g, "");
+// console.log(email)
 
-// const [removeCartItem, setRemoveItem]=useState('')
+useEffect(()=>{
+    const url = `https://crudcrud.com/api/ce58c65129874fed8767b68032c78a55/cart${email}`;
+
+    axios.get(url)
+      .then((res)=>{
+        console.log('data retrived', res.data)
+        setCartItems(res.data)
+      })
+      .catch(error => {
+        console.error('Error occurred:', error);
+    });
+},[])
  
 const addToCartItemshandler=(item)=>{
-  const updatedItem = {
-    ...item,
-    id: Math.random().toString(),
-  };
+ 
   setCartItems((prevCartItems) => {
-    const updatedCartItems = [...prevCartItems, updatedItem];
+    const updatedCartItems = [...prevCartItems, item];
     return updatedCartItems;
   });
   // console.log(item)
+ 
+
+   axios.post(`https://crudcrud.com/api/da5640e7adf64405a90c58521c22d2a1/cart${email}`, 
+    item
+    )
+    .then((response) => {
+      console.log('fetch successful:', response.data);
+  })
+  .catch((error) => {
+      console.error('Error occurred:', error);
+  });
+    
 }
 
 const removeCartHandler=(itemid)=>{
