@@ -92,18 +92,15 @@ const addToCartItemshandler=(item)=>{
     return updatedCartItems;
   });
   // console.log(item)
- 
-
-   axios.post(`https://crudcrud.com/api/da5640e7adf64405a90c58521c22d2a1/cart${email}`, 
-    item
-    )
+  
+  axios.post(`https://crudcrud.com/api/ce58c65129874fed8767b68032c78a55/cart${email}`, item)
     .then((response) => {
-      console.log('fetch successful:', response.data);
-  })
-  .catch((error) => {
-      console.error('Error occurred:', error);
-  });
-    
+        console.log('fetch successful:', response.data);
+    })
+    .catch((error) => {
+        console.error('Error occurred:', error);
+    });
+
 }
 
 const removeCartHandler=(itemid)=>{
