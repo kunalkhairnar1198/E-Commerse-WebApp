@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { Link, Route, useHistory, useParams, useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min'
+import { useHistory, useParams, useRouteMatch } from 'react-router-dom/cjs/react-router-dom.min'
 import { CartContext } from '../Store/Cart-context'
 import Title from '../UI/Title'
 import {Row, Col ,Button, Card,  Container} from 'react-bootstrap';

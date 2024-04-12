@@ -71,11 +71,11 @@ const [cartItems, setCartItems]= useState([])
 let email = localStorage.getItem('email')
 email = email.replace(/[@.""]/g, "");
 // console.log(email)
+const url = `https://crudcrud.com/api/7b0211ab33b64997891d7dc0010f20b4/cart${email}`;
 
 useEffect(()=>{
-    const url = `https://crudcrud.com/api/ce58c65129874fed8767b68032c78a55/cart${email}`;
 
-    axios.get(url)
+  axios.get(url)
       .then((res)=>{
         console.log('data retrived', res.data)
         setCartItems(res.data)
@@ -93,7 +93,7 @@ const addToCartItemshandler=(item)=>{
   });
   // console.log(item)
   
-  axios.post(`https://crudcrud.com/api/ce58c65129874fed8767b68032c78a55/cart${email}`, item)
+  axios.post(url, item)
     .then((response) => {
         console.log('fetch successful:', response.data);
     })
@@ -103,9 +103,20 @@ const addToCartItemshandler=(item)=>{
 
 }
 
-const removeCartHandler=(itemid)=>{
-const updateRemainItem = cartItems.filter((item, index)=> itemid !== index)
-setCartItems(updateRemainItem)
+const removeCartHandler=(item)=>{
+    
+  const updateRemainItem = cartItems.filter((items)=> items._id !== item._id)
+    setCartItems(updateRemainItem)
+    // console.log(updateRemainItem)
+
+    axios.delete(`${url}/${item._id}`)
+    .then((res)=>{
+        console.log('DELETE DATA',res.data)
+    })
+    .catch((error)=>{
+      console.log('Error occured',error)
+    })
+
 }
 
 const addProductDetails =()=>{

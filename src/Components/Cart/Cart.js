@@ -8,9 +8,8 @@ const Cart = (props) => {
   const {removeCartItem,cartItem} = useContext(CartContext)
   // console.log(removeCartItem,cartItem)
 
-  const onRemoveHandler = (itemid) => { 
-      // console.log(itemid)
-      removeCartItem(itemid)
+  const onRemoveHandler = (item) => { 
+      removeCartItem(item)
   }
 
   const updateQuantity =(event)=>{
@@ -20,7 +19,6 @@ const Cart = (props) => {
   const TotalAmount = cartItem.reduce((total, currvalue )=>{
     return total + currvalue.price * currvalue.quantity
   },0)
-  console.log(TotalAmount)
 
   const hardcodedList = cartItem.map((item, index) => (
     <tr key={index}>
@@ -31,7 +29,7 @@ const Cart = (props) => {
       <td>{item.price}</td>
       <td>
           <input type='number' defaultValue={item.quantity} onChange={updateQuantity} className={classes.input}/>
-          <Button onClick={() => onRemoveHandler(index)}>Remove</Button>
+          <Button onClick={() => onRemoveHandler(item)}>Remove</Button>
       </td>
     </tr>
   ));

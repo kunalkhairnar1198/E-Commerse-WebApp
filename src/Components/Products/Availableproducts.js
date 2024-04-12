@@ -23,7 +23,7 @@ const Availableproducts = (props) => {
   const location = useLocation()
   const ctxData = useContext(CartContext)
 
-console.log(location)
+// console.log(location)
   const AddToCartItemHandler =(item)=>{
     // console.log(item)
     ctxData.addCartItem(item)
