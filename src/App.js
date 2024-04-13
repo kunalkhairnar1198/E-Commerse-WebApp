@@ -1,16 +1,25 @@
-import {  useContext, useState } from 'react';
+import React,{  Suspense, useContext, useState } from 'react';
 import Navbarheader from './Components/Layout/Header/Navbarheader';
 import Footer from './Components/Footer/Footer';
 import Cart from './Components/Cart/Cart';
 import {Route, Redirect,Switch} from 'react-router-dom';
-import Store from './Components/Layout/Pages/Store';
-import Aboutus from './Components/Layout/Pages/Aboutus';
-import Home from './Components/Layout/Pages/Home';
-import Contactus from './Components/Layout/Pages/Contactus';
+// import Store from './Components/Layout/Pages/Store';
+// import Aboutus from './Components/Layout/Pages/Aboutus';
+// import Home from './Components/Layout/Pages/Home';
+// import Contactus from './Components/Layout/Pages/Contactus';
+// import Login from './Components/Layout/Pages/Login';
 import ProductDetail from './Components/Products/ProductDetail';
-import Login from './Components/Layout/Pages/Login';
 import { AuthContext } from './Components/Store/AuthContext/auth-context';
 import CartProvider from './Components/Store/CartProvider';
+import LoadingSpinner from './Components/UI/LoadingSpinner';
+
+const Login = React.lazy(()=> import('./Components/Layout/Pages/Login'))
+const Home = React.lazy(()=> import('./Components/Layout/Pages/Home'))
+const Store = React.lazy(()=> import('./Components/Layout/Pages/Store'))
+const Aboutus = React.lazy(()=> import('./Components/Layout/Pages/Aboutus'))
+const Contactus = React.lazy(()=> import('./Components/Layout/Pages/Contactus'))
+
+
 
 
 function App() {
@@ -31,6 +40,10 @@ function App() {
             {openCart && <Cart onCloseHandler={closeCartHandler}/>}
             <Navbarheader onOpenCart={openCartHandler}/>
             <main>
+              <Suspense 
+              fallback={<div className='align-self-center'> 
+                <LoadingSpinner/>
+              </div>}>
             <Switch>
                   <Route exact path='/'>
                       <Home/>
@@ -54,6 +67,7 @@ function App() {
                     <Redirect to= '/' />
                   </Route>
                 </Switch>
+                </Suspense>
             <Footer/>
           </main>
         </CartProvider>
