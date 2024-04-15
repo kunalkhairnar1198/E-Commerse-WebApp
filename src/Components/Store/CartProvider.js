@@ -69,9 +69,12 @@ const [dummyData, setDummyData] = useState([
 ])
 const [cartItems, setCartItems]= useState([])
 let email = localStorage.getItem('email')
-email = email.replace(/[@.""]/g, "");
-// console.log(email)
-const url = `https://crudcrud.com/api/7b0211ab33b64997891d7dc0010f20b4/cart${email}`;
+if(email){
+  email = email.replace(/[@.""]/g, "");
+}
+console.log(email)
+
+const url = `https://crudcrud.com/api/d15832feb0864218ba2c086297038eb4/cart${email}`;
 
 useEffect(()=>{
 
